@@ -13,6 +13,7 @@ public class ServerImpl implements InterfazDeServer{
 	public ServerImpl() throws RemoteException {
 		UnicastRemoteObject.exportObject(this, 0);
 		this.database = new ArrayList<Persona>();
+		dataInicial();
 	}
 	
 	public void dataInicial() {
@@ -23,11 +24,12 @@ public class ServerImpl implements InterfazDeServer{
 
 	@Override
 	public ArrayList<Persona> getPersonas() throws RemoteException {
-		
-		
-		
 		return database;
 	}
+	
+	public void addPersona(String nombre, int edad) throws RemoteException {
+        database.add(new Persona(nombre, edad));
+    }
 
 	@Override
 	public void Persona(String nombre, int edad) throws RemoteException {

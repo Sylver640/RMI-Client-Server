@@ -1,10 +1,10 @@
 package client;
 
+import java.io.IOException;
 import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 
 public class RunClient {
-	public static void main(String args[]) throws RemoteException, NotBoundException {
+	public static void main(String args[]) throws NotBoundException, IOException {
 		Client client = new Client();
 		client.startClient();
 	}
