@@ -31,19 +31,28 @@ public class Client {
 	
 	public void showMenu() throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("----- MENÚ -----");
-		System.out.println("1. Mostrar personas");
-		System.out.println("2. Salir");
+		do{
+			System.out.println("----- MENÚ -----");
+			System.out.println("1. Mostrar personas");
+			System.out.println("2. Añadir una persona");
+			System.out.println("3. Salir");
+			
+			int option = Integer.parseInt(br.readLine());
+			System.out.println(option);
+			
+			switch(option) {
+			case 1:
+				showPersonas();
+				break;
+			case 2:
+				createPersona();
+				break;
+			case 3:
+				System.exit(0);
+			}	
+			System.out.println("");
+		}while(true);
 		
-		int option = Integer.parseInt(br.readLine());
-		System.out.println(option);
-		
-		switch(option) {
-		case 1:
-			showPersonas();
-		case 2:
-			return;
-		}
 	}
 	
 	public void showPersonas() throws RemoteException {
@@ -65,5 +74,6 @@ public class Client {
         int age = Integer.parseInt(br.readLine());
 
         server.addPersona(name, age);
+        System.out.println("La persona ha sido registrada correctamente!");
     }
 }
