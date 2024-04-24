@@ -37,8 +37,8 @@ public class Client {
 			System.out.println("2. Añadir una persona");
 			System.out.println("3. Salir");
 			
+			System.out.print("\nIngrese una opción: ");
 			int option = Integer.parseInt(br.readLine());
-			System.out.println(option);
 			
 			switch(option) {
 			case 1:
@@ -57,10 +57,10 @@ public class Client {
 	
 	public void showPersonas() throws RemoteException {
 		ArrayList<Persona> database = getPersonas();
-		System.out.println("NOMBRE   ,   EDAD");
+		System.out.println("NOMBRE   -   EDAD");
 		for(int i = 0; i < database.size(); i++) {
 			Persona aux = (Persona)database.get(i);
-			System.out.println(aux.getNombre() + "," + aux.getEdad());
+			System.out.println(aux.getNombre() + "   -   " + aux.getEdad());
 		}
 	}
 	
